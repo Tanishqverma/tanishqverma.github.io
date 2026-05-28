@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanishq Verma | Performance Adtech Analyst & Program Manager</title>
+    <link rel="canonical" href="https://tanishqverma.github.io/" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -38,10 +39,7 @@
             transform: translateY(40px);
             transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
@@ -50,8 +48,72 @@
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
         }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: #FF5A00;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover { color: #FF5A00; transform: translateY(-2px); }
+        .nav-link:active { transform: translateY(1px); }
+        .nav-link:hover::after { width: 100%; }
 
+        .hero-gradient {
+            background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 90, 0, 0.12), transparent);
+        }
+
+        /* Metric cards */
+        .metric-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .metric-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(255, 90, 0, 0.15), 0 0 0 1px rgba(255, 90, 0, 0.3);
+        }
+        .metric-card:hover .metric-number { color: #FF5A00; }
+        .metric-bar {
+            width: 0%; height: 3px;
+            background: linear-gradient(90deg, #FF5A00, #fbbf24);
+            border-radius: 2px;
+            transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .metric-bar.active { width: 100%; }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 90, 0, 0.3); }
+            50% { box-shadow: 0 0 20px 4px rgba(255, 90, 0, 0.12); }
+        }
+        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+        /* Timeline */
+        .timeline-item {
+            border-left: 3px solid #253347;
+            transition: border-color 0.4s ease, border-left-width 0.3s ease;
+        }
+        .timeline-item:hover { border-left-color: #FF5A00; border-left-width: 5px; }
+
+        /* Project accordion cards */
+        .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .project-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 24px rgba(255, 90, 0, 0.2);
+        }
+        .accordion-toggle { display: none; }
+        .accordion-content {
+            max-height: 0; overflow: hidden; opacity: 0;
+            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+        }
+        .accordion-toggle:checked + .project-card .accordion-content { max-height: 600px; opacity: 1; }
+        .accordion-toggle:checked + .project-card { box-shadow: 0 0 30px rgba(255, 90, 0, 0.2); }
+        .accordion-toggle:checked + .project-card .chevron-icon { transform: rotate(180deg); }
+        .chevron-icon { transition: transform 0.3s ease; }
+
+        /* Skill pills with tooltips */
         .skill-pill {
+            position: relative;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: default;
         }
@@ -60,96 +122,45 @@
             background: #FF5A00;
             color: #fff;
             box-shadow: 0 0 20px rgba(255, 90, 0, 0.4), 0 0 40px rgba(255, 90, 0, 0.15);
+            border-color: #FF5A00;
         }
+        .skill-pill .tooltip {
+            position: absolute;
+            bottom: calc(100% + 8px); left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: #FF5A00; color: #fff;
+            padding: 4px 10px; border-radius: 6px;
+            font-size: 0.65rem; font-weight: 600;
+            white-space: nowrap; opacity: 0; pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .skill-pill .tooltip::after {
+            content: '';
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #FF5A00;
+        }
+        .skill-pill:hover .tooltip { opacity: 1; transform: translateX(-50%) scale(1); }
 
-        .timeline-item {
-            border-left: 3px solid #253347;
-            transition: border-color 0.4s ease, border-left-width 0.3s ease;
-        }
-        .timeline-item:hover {
-            border-left-color: #FF5A00;
-            border-left-width: 5px;
-        }
-
-        .metric-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .metric-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(255, 90, 0, 0.15), 0 0 0 1px rgba(255, 90, 0, 0.3);
-        }
-        .metric-card:hover .metric-number {
-            color: #FF5A00;
-        }
-
-        .btn-primary {
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 90, 0, 0.35);
-        }
-        .btn-primary:active {
-            transform: translateY(1px) scale(0.98);
-            box-shadow: 0 2px 8px rgba(255, 90, 0, 0.2);
-        }
-
-        .btn-outline {
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        /* Buttons */
+        .btn-primary { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 90, 0, 0.35); }
+        .btn-primary:active { transform: translateY(1px) scale(0.98); }
+        .btn-outline { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
         .btn-outline:hover {
-            background: #FF5A00;
-            border-color: #FF5A00;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 90, 0, 0.35);
+            background: #FF5A00; border-color: #FF5A00; color: #fff;
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 90, 0, 0.35);
         }
-        .btn-outline:active {
-            transform: translateY(1px) scale(0.98);
-        }
+        .btn-outline:active { transform: translateY(1px) scale(0.98); }
 
-        .award-badge {
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        /* Award badges */
+        .award-badge { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         .award-badge:hover {
-            transform: translateY(-4px);
-            border-color: #FF5A00;
+            transform: translateY(-4px); border-color: #FF5A00;
             box-shadow: 0 10px 30px rgba(255, 90, 0, 0.15);
         }
-
-        .hero-gradient {
-            background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 90, 0, 0.12), transparent);
-        }
-
-        .glow-line {
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #FF5A00, #ff8c42);
-            border-radius: 2px;
-        }
-
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #FF5A00;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover { color: #FF5A00; }
-        .nav-link:hover::after { width: 100%; }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 90, 0, 0.3); }
-            50% { box-shadow: 0 0 20px 4px rgba(255, 90, 0, 0.12); }
-        }
-        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
     </style>
 </head>
 <body class="antialiased">
@@ -157,17 +168,18 @@
     <!-- NAV -->
     <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-slate-950/80 border-b border-white/5">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#hero" class="text-lg font-bold tracking-tight">
+            <a href="https://tanishqverma.github.io/" class="text-lg font-bold tracking-tight">
                 <span class="text-brand">T</span>V
             </a>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#hero" class="nav-link">Home</a>
                 <a href="#metrics" class="nav-link">Impact</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#education" class="nav-link">Education</a>
             </div>
             <div class="flex items-center gap-3">
-                <a href="Tanishq_Verma_Resume_Refined.pdf" download class="btn-primary bg-brand text-white text-xs font-semibold px-4 py-2 rounded-lg inline-flex items-center gap-2">
+                <a href="Tanishq_Verma_Resume.pdf" download class="btn-primary bg-brand text-white text-xs font-semibold px-4 py-2 rounded-lg inline-flex items-center gap-2">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                     Resume
                 </a>
@@ -184,18 +196,18 @@
                     Tanishq Verma
                 </h1>
                 <p class="text-lg sm:text-xl text-brand font-semibold mb-6 tracking-wide">
-                    Performance Adtech Analyst & Program Manager
+                    Performance Adtech Analyst &amp; Program Manager
                 </p>
                 <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed mb-4">
-                    Scaling Ad Revenue & Automation Pipelines
+                    Scaling Ad Revenue &amp; Automation Pipelines
                 </p>
                 <p class="text-base text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
-                    Managing AED 400M+ P&L budgets across the UAE
+                    Managing AED 400M+ P&amp;L budgets across the UAE
                     and building practical Python automations and AI-powered operational
                     workflows that eliminate hours of manual work every single day.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="Tanishq_Verma_Resume_Refined.pdf" download class="btn-primary bg-brand hover:bg-brand-hover text-white font-semibold px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm">
+                    <a href="Tanishq_Verma_Resume.pdf" download class="btn-primary bg-brand hover:bg-brand-hover text-white font-semibold px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                         Download PDF Resume
                     </a>
@@ -211,21 +223,28 @@
     <!-- METRICS -->
     <section id="metrics" class="py-20 px-6">
         <div class="max-w-5xl mx-auto">
+            <div class="reveal text-center mb-12">
+                <p class="text-brand font-semibold text-sm tracking-widest uppercase mb-3">Key Performance</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Core Impact Metrics</h2>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="reveal metric-card bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center pulse-glow">
-                    <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">AED 400M+</p>
-                    <p class="text-sm text-slate-400 font-medium">Annual Ad Revenue P&L Owned</p>
-                    <p class="text-xs text-slate-600 mt-1">Talabat, UAE</p>
+                    <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">AED 400M<span class="text-brand">+</span></p>
+                    <p class="text-sm text-slate-400 font-medium mb-1">Annual Ad Revenue P&amp;L Owned</p>
+                    <p class="text-xs text-slate-600 mb-5">Talabat, UAE</p>
+                    <div class="w-full bg-white/5 rounded-full h-[3px]"><div class="metric-bar" data-metric></div></div>
                 </div>
                 <div class="reveal reveal-delay-1 metric-card bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center pulse-glow" style="animation-delay: 1s;">
-                    <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">125 Cr</p>
-                    <p class="text-sm text-slate-400 font-medium">Monthly Ad Portfolio Managed</p>
-                    <p class="text-xs text-slate-600 mt-1">Zomato, India</p>
+                    <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">125 <span class="text-brand">Cr</span></p>
+                    <p class="text-sm text-slate-400 font-medium mb-1">Monthly Ad Portfolio Managed</p>
+                    <p class="text-xs text-slate-600 mb-5">Zomato, India</p>
+                    <div class="w-full bg-white/5 rounded-full h-[3px]"><div class="metric-bar" data-metric></div></div>
                 </div>
                 <div class="reveal reveal-delay-2 metric-card bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center pulse-glow" style="animation-delay: 2s;">
-                    <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">3+ Hrs</p>
-                    <p class="text-sm text-slate-400 font-medium">Daily Manual Reporting Slashed</p>
-                    <p class="text-xs text-slate-600 mt-1">Python ETL Automation</p>
+                    <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">3+ <span class="text-brand">Hrs</span></p>
+                    <p class="text-sm text-slate-400 font-medium mb-1">Daily Manual Reporting Automated</p>
+                    <p class="text-xs text-slate-600 mb-5">Python ETL Automation</p>
+                    <div class="w-full bg-white/5 rounded-full h-[3px]"><div class="metric-bar" data-metric></div></div>
                 </div>
             </div>
         </div>
@@ -248,25 +267,79 @@
                     </div>
                     <span class="text-sm text-slate-500 font-medium mt-2 sm:mt-0 bg-slate-900 px-4 py-1.5 rounded-full border border-slate-800">Oct 2024 &mdash; Present</span>
                 </div>
+                <div class="space-y-4 mb-8">
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Owned <span class="text-white font-semibold">AED 400M+</span> annual ad revenue P&amp;L, driving consistent MoM target attainment across the UAE by building centralized performance dashboards and conducting weekly variance reviews with senior leadership.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Managed and aligned a cross-functional organization of <span class="text-white font-semibold">80+ Account Managers, 30 Team Leads, and 5 City Heads</span>, as measured by unified KPI adherence and zero misalignment escalations, by designing standardized templates and providing executive KPI dashboard tracking.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Launched <span class="text-white font-semibold">Food Stories Video Ads</span> as a premium ad format, achieving <span class="text-brand font-semibold">100+ major brand</span> adoptions within the first two quarters by defining placement inventory and executing phased onboarding campaigns.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Designed a <span class="text-white font-semibold">Product Pricing Optimization</span> framework, delivering a <span class="text-brand font-semibold">5% MoM incremental revenue uplift</span> by restructuring bidding models and running controlled A/B tests across high-density restaurant clusters.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Reduced vendor churn and recovered <span class="text-brand font-semibold">AED 800K in additional monthly revenue</span> (<span class="text-white font-semibold">AED 5M+ GMV</span>) by re-engineering VAT calculations and rolling out guaranteed-ROI proposals.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Steered country-level <span class="text-white font-semibold">enablement and training curricula</span> for the UAE commercial team, improving AM onboarding speed and pitch conversion rates through standardized playbooks and self-serve training modules.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Built <span class="text-white font-semibold">Python-based ETL pipelines</span> eliminating <span class="text-brand font-semibold">3+ hours of manual work per day</span> by writing practical loops that calculated MTD vs LMTD vs L2MTD variance metrics from BigQuery and fed live Tableau and Looker dashboards.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Deployed automated <span class="text-white font-semibold">email and Slack status notifications</span> for critical revenue deviations using scheduled Python jobs via command-line cron scheduling with BigQuery and Google Sheets connectors.</p>
+                    </div>
+                </div>
+
+                <!-- Talabat Accordion Projects -->
                 <div class="space-y-4">
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Owned <span class="text-white font-semibold">AED 400M+</span> annual ad revenue P&L, driving consistent MoM target attainment across the UAE by aligning <span class="text-white font-semibold">80+ Account Managers, 30 Team Leads, and 5 City Heads</span> on unified KPIs.</p>
-                    </div>
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Launched <span class="text-white font-semibold">Food Stories Video Ads</span> and a dynamic pricing framework that drove <span class="text-white font-semibold">100+ major brand</span> adoptions and a <span class="text-brand font-semibold">5% MoM incremental revenue uplift</span> through optimized ad placements.</p>
-                    </div>
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Reduced vendor churn and recovered <span class="text-brand font-semibold">AED 800K in additional MoM revenue</span> (<span class="text-white font-semibold">AED 5M+ monthly GMV</span>) by re-engineering VAT calculations and guaranteed-ROI packages.</p>
-                    </div>
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Built <span class="text-white font-semibold">Python-based ETL pipelines</span> that automated daily revenue reporting, eliminating <span class="text-brand font-semibold">3+ hours of manual work per day</span> and feeding live dashboards in Tableau and Looker.</p>
-                    </div>
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Integrated <span class="text-white font-semibold">BigQuery and Google Sheets</span> into operational workflows via AI data-connectors, converting unstructured text logs into clean analytical datasets.</p>
-                    </div>
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Deployed automated <span class="text-white font-semibold">email and Slack alerts</span> for critical revenue deviations using scheduled CLI jobs, achieving fully autonomous monitoring.</p>
-                    </div>
+                    <input type="checkbox" id="acc-vat" class="accordion-toggle" />
+                    <label for="acc-vat" class="project-card block bg-slate-850 border border-white/5 rounded-xl p-5 cursor-pointer">
+                        <div class="flex items-center justify-between">
+                            <div><p class="text-white font-semibold text-sm">VAT Optimization Engine</p><p class="text-slate-500 text-xs">Click to expand project details</p></div>
+                            <svg class="chevron-icon w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </div>
+                        <div class="accordion-content mt-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3 border-t border-white/5">
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Core Objective</p><p class="text-slate-300 text-xs leading-relaxed">Eliminate VAT miscalculations causing systematic revenue leakage across high-density vendor clusters in the UAE market.</p></div>
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Strategy Deployed</p><p class="text-slate-300 text-xs leading-relaxed">Re-engineered VAT calculation logic, restructured ad pricing packages, and deployed guaranteed-ROI proposals for underperforming vendors.</p></div>
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Hard Financial Impact</p><p class="text-slate-300 text-xs leading-relaxed">Recovered AED 800K in monthly revenue with AED 5M+ GMV impact, significantly reducing vendor churn rates.</p></div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <input type="checkbox" id="acc-food" class="accordion-toggle" />
+                    <label for="acc-food" class="project-card block bg-slate-850 border border-white/5 rounded-xl p-5 cursor-pointer">
+                        <div class="flex items-center justify-between">
+                            <div><p class="text-white font-semibold text-sm">Food Stories Video Ads</p><p class="text-slate-500 text-xs">Click to expand project details</p></div>
+                            <svg class="chevron-icon w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </div>
+                        <div class="accordion-content mt-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3 border-t border-white/5">
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Core Objective</p><p class="text-slate-300 text-xs leading-relaxed">Launch a premium video ad format to diversify Talabat's advertising inventory beyond static placements.</p></div>
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Strategy Deployed</p><p class="text-slate-300 text-xs leading-relaxed">Partnered with product and sales to define placement inventory, build pitch collateral, and execute phased brand onboarding campaigns.</p></div>
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Hard Financial Impact</p><p class="text-slate-300 text-xs leading-relaxed">Achieved 100+ major brand adoptions within the first two quarters, creating a new high-margin revenue stream.</p></div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <input type="checkbox" id="acc-pricing" class="accordion-toggle" />
+                    <label for="acc-pricing" class="project-card block bg-slate-850 border border-white/5 rounded-xl p-5 cursor-pointer">
+                        <div class="flex items-center justify-between">
+                            <div><p class="text-white font-semibold text-sm">Product Pricing Framework</p><p class="text-slate-500 text-xs">Click to expand project details</p></div>
+                            <svg class="chevron-icon w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </div>
+                        <div class="accordion-content mt-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3 border-t border-white/5">
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Core Objective</p><p class="text-slate-300 text-xs leading-relaxed">Optimize ad package pricing to maximize per-unit revenue without increasing vendor churn or reducing fill rates.</p></div>
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Strategy Deployed</p><p class="text-slate-300 text-xs leading-relaxed">Restructured bidding models, introduced tiered pricing logic, and ran controlled A/B tests across high-density restaurant clusters.</p></div>
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Hard Financial Impact</p><p class="text-slate-300 text-xs leading-relaxed">Delivered 5% month-over-month incremental revenue uplift on ad packages across the UAE market.</p></div>
+                            </div>
+                        </div>
+                    </label>
                 </div>
             </div>
 
@@ -279,19 +352,43 @@
                     </div>
                     <span class="text-sm text-slate-500 font-medium mt-2 sm:mt-0 bg-slate-900 px-4 py-1.5 rounded-full border border-slate-800">July 2021 &mdash; Oct 2024</span>
                 </div>
+                <div class="space-y-4 mb-8">
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Scaled Zomato-Bharat's ad revenue engine to a <span class="text-brand font-semibold">$15M monthly portfolio</span> by monetizing video ads, visit packs, AI-generated videos, and brand tiles across restaurant and grocery verticals.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Achieved the <span class="text-white font-semibold">Mission 125 Ads</span> milestone of a <span class="text-brand font-semibold">125-crore monthly advertising portfolio</span> by December 2023, by orchestrating a national sales push across 695 cities and implementing performance-based incentive structures.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Grew <span class="text-white font-semibold">Average Revenue Per Order to 9.1</span> and cut client churn from <span class="text-brand font-semibold">17% to 10%</span>, protecting <span class="text-white font-semibold">$1.4M</span> in recurring monthly ad revenue through automated health-score dashboards and data-driven pricing.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Led the regional rollout of <span class="text-white font-semibold">Zomato Gold</span> across North India, accelerating subscription adoption and city-level profitability by mentoring junior business analysts and coordinating cross-functional launch logistics.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Drove a <span class="text-brand font-semibold">2.46% commission uplift</span> across the North region by leading a full commission structure overhaul from market analysis through stakeholder alignment to phased rollout.</p>
+                    </div>
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Created <span class="text-white font-semibold">national analytics dashboards</span> adopted by C-suite stakeholders for monthly business reviews, consolidating fragmented city-level data into unified Tableau views with drill-down by region, format, and tier.</p>
+                    </div>
+                </div>
+
+                <!-- Mission 125 Accordion -->
                 <div class="space-y-4">
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Scaled Zomato-Bharat's ad revenue engine to a <span class="text-brand font-semibold">$15M monthly portfolio</span> by monetizing video ads, visit packs, AI-generated videos, and brand tiles.</p>
-                    </div>
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Grew <span class="text-white font-semibold">Average Revenue Per Order to 9.1</span> and cut client churn from <span class="text-brand font-semibold">17% to 10%</span>, protecting <span class="text-white font-semibold">$1.4M</span> in recurring monthly ad revenue.</p>
-                    </div>
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Led growth operations across <span class="text-white font-semibold">695 cities</span> and launched <span class="text-white font-semibold">Zomato Gold</span> in North India, accelerating subscription adoption and city-level profitability.</p>
-                    </div>
-                    <div class="timeline-item pl-5 py-3">
-                        <p class="text-slate-300 text-sm leading-relaxed">Drove a <span class="text-brand font-semibold">2.46% commission uplift</span> across the North region by leading a full commission structure overhaul — from market analysis through stakeholder alignment to phased rollout.</p>
-                    </div>
+                    <input type="checkbox" id="acc-mission" class="accordion-toggle" />
+                    <label for="acc-mission" class="project-card block bg-slate-850 border border-white/5 rounded-xl p-5 cursor-pointer">
+                        <div class="flex items-center justify-between">
+                            <div><p class="text-white font-semibold text-sm">Mission 125 Ads</p><p class="text-slate-500 text-xs">Click to expand project details</p></div>
+                            <svg class="chevron-icon w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </div>
+                        <div class="accordion-content mt-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3 border-t border-white/5">
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Core Objective</p><p class="text-slate-300 text-xs leading-relaxed">Hit the 125-crore monthly advertising portfolio target across Zomato's national restaurant and grocery network by December 2023.</p></div>
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Strategy Deployed</p><p class="text-slate-300 text-xs leading-relaxed">Orchestrated a national sales push across 695 cities, optimized ad-format mix allocation, and implemented performance-based incentive structures for field teams.</p></div>
+                                <div class="bg-slate-950 rounded-lg p-4"><p class="text-brand text-xs font-bold uppercase tracking-wider mb-2">Hard Financial Impact</p><p class="text-slate-300 text-xs leading-relaxed">125-crore monthly advertising portfolio achieved on target, with cumulative quarterly ad revenue exceeding the threshold.</p></div>
+                            </div>
+                        </div>
+                    </label>
                 </div>
             </div>
         </div>
@@ -302,42 +399,47 @@
         <div class="max-w-5xl mx-auto">
             <div class="reveal text-center mb-16">
                 <p class="text-brand font-semibold text-sm tracking-widest uppercase mb-3">Technical Toolkit</p>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white">Skills & Expertise</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-2">Skills &amp; Expertise</h2>
+                <p class="text-slate-500 text-sm">Hover any skill to see its category</p>
             </div>
 
             <div class="reveal space-y-10">
                 <div>
                     <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">Core Analytics</h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">SQL</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Python (Pandas/DataFrames)</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Tableau</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Looker</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">BigQuery</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Revenue Forecasting</span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">SQL<span class="tooltip">Core Analytics</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Python (Pandas/DataFrames)<span class="tooltip">AI Automation</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Tableau<span class="tooltip">Core Analytics</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Looker<span class="tooltip">Core Analytics</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">BigQuery<span class="tooltip">Core Analytics</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Google Workspace<span class="tooltip">Core Analytics</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Revenue Forecasting<span class="tooltip">Core Analytics</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Dashboard Development<span class="tooltip">Core Analytics</span></span>
                     </div>
                 </div>
 
                 <div>
                     <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">AI Automation</h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Prompt Engineering</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">JSON Schema Validation</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Automated ETL Pipelines</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">CLI Tools</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Cloud Data Connectors</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Automated Alerting Systems</span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Prompt Engineering<span class="tooltip">AI Automation</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">JSON Schema Validation<span class="tooltip">AI Automation</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Automated ETL Pipelines<span class="tooltip">AI Automation</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">CLI Cron Scheduling<span class="tooltip">AI Automation</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Cloud Data Connectors<span class="tooltip">AI Automation</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Automated Alerting Systems<span class="tooltip">AI Automation</span></span>
                     </div>
                 </div>
 
                 <div>
                     <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">Leadership</h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">P&L Management</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Adtech Product Optimization</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Cross-Functional Team Leadership</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Churn Reduction</span>
-                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Stakeholder Management</span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">P&amp;L Management<span class="tooltip">Strategic Leadership</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Adtech Product Optimization<span class="tooltip">Strategic Leadership</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Cross-Functional Team Leadership<span class="tooltip">Strategic Leadership</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Change Management<span class="tooltip">Strategic Leadership</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Churn Reduction<span class="tooltip">Strategic Leadership</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Stakeholder Management<span class="tooltip">Strategic Leadership</span></span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Program Management<span class="tooltip">Strategic Leadership</span></span>
                     </div>
                 </div>
             </div>
@@ -349,7 +451,7 @@
         <div class="max-w-5xl mx-auto">
             <div class="reveal text-center mb-16">
                 <p class="text-brand font-semibold text-sm tracking-widest uppercase mb-3">Background</p>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white">Education & Awards</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Education &amp; Awards</h2>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -361,7 +463,7 @@
                             </div>
                             <h3 class="text-lg font-bold text-white">Education</h3>
                         </div>
-                        <p class="text-white font-semibold mb-1">B. Tech in Electronics & Communication Engineering</p>
+                        <p class="text-white font-semibold mb-1">B. Tech in Electronics &amp; Communication Engineering</p>
                         <p class="text-slate-400 text-sm mb-3">Jaypee Institute of Information Technology (JIIT)</p>
                         <span class="inline-block bg-brand/10 text-brand text-xs font-bold px-3 py-1.5 rounded-full border border-brand/20">7 GPA</span>
                     </div>
@@ -371,39 +473,27 @@
                     <div class="space-y-3">
                         <div class="award-badge bg-slate-900 border border-slate-800 rounded-xl p-5 flex items-center gap-4">
                             <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-white font-semibold text-sm">P&L Excellence — AED 400M+ Revenue Ownership</p>
-                                <p class="text-slate-500 text-xs">Talabat, 2025</p>
-                            </div>
-                        </div>
-                        <div class="award-badge bg-slate-900 border border-slate-800 rounded-xl p-5 flex items-center gap-4">
-                            <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
                             </div>
-                            <div>
-                                <p class="text-white font-semibold text-sm">Ads Champion</p>
-                                <p class="text-slate-500 text-xs">Zomato, 2023</p>
-                            </div>
+                            <div><p class="text-white font-semibold text-sm">Ads Champion</p><p class="text-slate-500 text-xs">Zomato, 2023</p></div>
                         </div>
                         <div class="award-badge bg-slate-900 border border-slate-800 rounded-xl p-5 flex items-center gap-4">
                             <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
                             </div>
-                            <div>
-                                <p class="text-white font-semibold text-sm">Commission Ace Champion</p>
-                                <p class="text-slate-500 text-xs">Zomato, 2023</p>
-                            </div>
+                            <div><p class="text-white font-semibold text-sm">Commission Ace Champion</p><p class="text-slate-500 text-xs">Zomato, 2023</p></div>
                         </div>
                         <div class="award-badge bg-slate-900 border border-slate-800 rounded-xl p-5 flex items-center gap-4">
                             <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
                             </div>
-                            <div>
-                                <p class="text-white font-semibold text-sm">Ace Super Star Award</p>
-                                <p class="text-slate-500 text-xs">Zomato, 2021 & 2022</p>
+                            <div><p class="text-white font-semibold text-sm">Ace Super Star Award</p><p class="text-slate-500 text-xs">Zomato, 2021 &amp; 2022</p></div>
+                        </div>
+                        <div class="award-badge bg-slate-900 border border-slate-800 rounded-xl p-5 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
                             </div>
+                            <div><p class="text-white font-semibold text-sm">100% Scholarship in 12th Grade</p><p class="text-slate-500 text-xs">Delhi Public School</p></div>
                         </div>
                     </div>
                 </div>
@@ -421,6 +511,8 @@
                 <a href="tel:+971503527482" class="text-slate-500 hover:text-brand transition-colors text-sm">+971-503527482</a>
                 <span class="text-slate-700">|</span>
                 <a href="https://www.linkedin.com/in/tanishq-verma-4a67091a9/" target="_blank" rel="noopener" class="text-slate-500 hover:text-brand transition-colors text-sm">LinkedIn</a>
+                <span class="text-slate-700">|</span>
+                <a href="https://tanishqverma.github.io/" class="text-slate-500 hover:text-brand transition-colors text-sm">tanishqverma.github.io</a>
             </div>
         </div>
     </footer>
@@ -430,6 +522,9 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    entry.target.querySelectorAll('.metric-bar').forEach(bar => {
+                        setTimeout(() => bar.classList.add('active'), 300);
+                    });
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
