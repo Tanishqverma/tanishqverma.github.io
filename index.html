@@ -163,6 +163,7 @@
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
                 <a href="#metrics" class="nav-link">Impact</a>
                 <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#education" class="nav-link">Education</a>
             </div>
@@ -211,7 +212,7 @@
     <!-- METRICS -->
     <section id="metrics" class="py-20 px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="reveal metric-card bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center pulse-glow">
                     <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">AED 400M+</p>
                     <p class="text-sm text-slate-400 font-medium">Annual Ad Revenue P&L Owned</p>
@@ -226,6 +227,11 @@
                     <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">3+ Hrs</p>
                     <p class="text-sm text-slate-400 font-medium">Daily Manual Reporting Slashed</p>
                     <p class="text-xs text-slate-600 mt-1">Python ETL Automation</p>
+                </div>
+                <div class="reveal reveal-delay-3 metric-card bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center pulse-glow" style="animation-delay: 3s;">
+                    <p class="metric-number text-4xl sm:text-5xl font-black text-white mb-2 transition-colors duration-300">12%</p>
+                    <p class="text-sm text-slate-400 font-medium">MoM Manual Discount Reduction</p>
+                    <p class="text-xs text-slate-600 mt-1">Talabat, Star Performer 2026</p>
                 </div>
             </div>
         </div>
@@ -249,6 +255,9 @@
                     <span class="text-sm text-slate-500 font-medium mt-2 sm:mt-0 bg-slate-900 px-4 py-1.5 rounded-full border border-slate-800">Oct 2024 &mdash; Present</span>
                 </div>
                 <div class="space-y-4">
+                    <div class="timeline-item pl-5 py-3">
+                        <p class="text-slate-300 text-sm leading-relaxed">Awarded <span class="text-brand font-semibold">Star Performer</span> recognition for <span class="text-white font-semibold">meeting 100% of annual budget targets</span> while driving a <span class="text-brand font-semibold">12% MoM reduction</span> in manual discounts.</p>
+                    </div>
                     <div class="timeline-item pl-5 py-3">
                         <p class="text-slate-300 text-sm leading-relaxed">Owned <span class="text-white font-semibold">AED 400M+</span> annual ad revenue P&L, driving consistent MoM target attainment across the UAE by aligning <span class="text-white font-semibold">80+ Account Managers, 30 Team Leads, and 5 City Heads</span> on unified KPIs.</p>
                     </div>
@@ -297,6 +306,54 @@
         </div>
     </section>
 
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="reveal text-center mb-16">
+                <p class="text-brand font-semibold text-sm tracking-widest uppercase mb-3">Built & Shipped</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Internal Tools & Dashboards</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="reveal metric-card bg-slate-900 border border-slate-800 rounded-2xl p-7">
+                    <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">AE Retention Budget Dashboard</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Live web app tracking CPC & Keywords retention budget gaps across the UAE, drilling down City Head &rarr; Team Lead &rarr; AM with hourly auto-refreshed data.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">Apps Script</span>
+                        <span class="text-xs text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">Sheets API</span>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-delay-1 metric-card bg-slate-900 border border-slate-800 rounded-2xl p-7">
+                    <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Talabat Dashboard Hub</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Self-serve internal platform where any team can publish an HTML dashboard and get a permanent, domain-restricted link &mdash; with search, categories, and archiving.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">Apps Script</span>
+                        <span class="text-xs text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">Drive API</span>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-delay-2 metric-card bg-slate-900 border border-slate-800 rounded-2xl p-7">
+                    <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Personal Work Tracker</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Web dashboard logging tasks, wins, and proactive contributions year-round, auto-generating a ready-to-use EOY performance review summary.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">Apps Script</span>
+                        <span class="text-xs text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">Sheets API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SKILLS -->
     <section id="skills" class="py-20 px-6 bg-slate-900/50">
         <div class="max-w-5xl mx-auto">
@@ -327,6 +384,7 @@
                         <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">CLI Tools</span>
                         <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Cloud Data Connectors</span>
                         <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Automated Alerting Systems</span>
+                        <span class="skill-pill bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full">Google Apps Script</span>
                     </div>
                 </div>
 
@@ -369,6 +427,15 @@
 
                 <div class="reveal reveal-delay-1">
                     <div class="space-y-3">
+                        <div class="award-badge bg-slate-900 border border-slate-800 rounded-xl p-5 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold text-sm">Star Performer — Annual Budget Attainment & 12% MoM Discount Reduction</p>
+                                <p class="text-slate-500 text-xs">Talabat, 2026</p>
+                            </div>
+                        </div>
                         <div class="award-badge bg-slate-900 border border-slate-800 rounded-xl p-5 flex items-center gap-4">
                             <div class="w-10 h-10 bg-brand/10 border border-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
@@ -414,7 +481,7 @@
     <!-- FOOTER -->
     <footer class="border-t border-slate-800 py-10 px-6">
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-slate-600 text-sm">&copy; 2025 Tanishq Verma &mdash; Dubai, UAE</p>
+            <p class="text-slate-600 text-sm">&copy; 2026 Tanishq Verma &mdash; Dubai, UAE</p>
             <div class="flex items-center gap-4 flex-wrap justify-center">
                 <a href="mailto:tanishqv.1998@gmail.com" class="text-slate-500 hover:text-brand transition-colors text-sm">tanishqv.1998@gmail.com</a>
                 <span class="text-slate-700">|</span>
